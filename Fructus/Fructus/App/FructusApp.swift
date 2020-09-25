@@ -9,13 +9,23 @@ import SwiftUI
 
 @main
 struct FructusApp: App {
+    
+    // MARK: - Properties
+    @AppStorage("isOnboarding") var isOnboarding: Bool = true
+    
+    // MARK: - Body
     var body: some Scene {
         WindowGroup {
-            OnboardingView()
+            if isOnboarding {
+                OnboardingView()
+            } else {
+                ContentView()
+            }
         }
     }
 }
 
+// MARK: - Preview
 struct FructusApp_Previews: PreviewProvider {
     static var previews: some View {
         /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
